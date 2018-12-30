@@ -15,5 +15,11 @@
     "js"
   ],
   "author": "mojila",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mysql2": "^1.6.4",
+    "nexmo": "^2.4.0"
+  }
 }
