@@ -1,0 +1,19 @@
+{
+  "name": "sms-authentication",
+  "version": "0.0.1",
+  "description": "SMS Authentication RESTful API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sms",
+    "auth",
+    "restful",
+    "api",
+    "node",
+    "js"
+  ],
+  "author": "mojila",
+  "license": "ISC"
+}
