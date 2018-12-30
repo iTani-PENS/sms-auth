@@ -1,6 +1,7 @@
 const express = require('express'); // Micro-framework for web
 const app = express(); // use express module
 const bodyParser = require('body-parser');
+const config = require('./env/main.config');
 
 // plugin
 app.use(bodyParser.json({}));
@@ -8,11 +9,9 @@ app.use(bodyParser.json({}));
 // Routers
 app.use('/', require('./routers/index'));
 app.use('/users', require('./routers/users'));
+app.use('/auth', require('./routers/auth'));
 
-const HOST = '0.0.0.0'; // web service host
-const PORT = 3000; // web service port
-
-app.listen(PORT, HOST, () => {
+app.listen(config.PORT, config.HOST, () => {
     let t = 0; // time iteration initialization
     let updateTime = 1000; // 1 / 1000 = 1 second
 
@@ -20,11 +19,15 @@ app.listen(PORT, HOST, () => {
     return setInterval(() => {
         t++; // time clocking
 
-        console.clear(); // clear console
-        console.log(`Web Service Running on\t: http://${ HOST }:${ PORT }/`);
-        console.log(`Web Service Uptime\t: ${ Math.floor((t / 3600)) } Hour ${ Math.floor((t % 3600) / 60) } Minute ${ t % 60 } Second`);
-        console.log(`================================================================================`);
+        logging(t);
     }, updateTime);
 });
+
+const logging = (time) => {
+    console.clear(); // clear console
+    console.log(`Web Service Running on\t: http://${ config.HOST }:${ config.PORT }/`);
+    console.log(`Web Service Uptime\t: ${ Math.floor((time / 3600)) } Hour ${ Math.floor((time % 3600) / 60) } Minute ${ time % 60 } Second`);
+    console.log(`================================================================================`);
+};
 
 module.exports = app;
