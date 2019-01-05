@@ -1,6 +1,6 @@
 FROM node:alpine
 
-RUN mkdir -f /sms-auth
+RUN mkdir -p /sms-auth
 WORKDIR /sms-auth
 
 ADD . .
