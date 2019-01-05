@@ -1,5 +1,7 @@
 module.exports = ({
   ERROR_NOT_FOUND: 404,
   NO_CONTENT: 204,
-  OK: 200
+  OK: 200,
+  ACCEPTED: 202,
+  UNAUTHORIZED: 401
 });
