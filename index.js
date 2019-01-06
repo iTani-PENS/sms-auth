@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const config = require('./env/main.config');
 
 // plugin
-app.use(bodyParser.json({}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routers
 app.use('/', require('./routers/index'));
