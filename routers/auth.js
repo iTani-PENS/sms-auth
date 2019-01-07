@@ -126,7 +126,7 @@ router.get('/resend-verify/:phoneNumber', (req, res) => {
             } else {
                 return res.json({
                     message: 'user not found or verified',
-                    code: statusCode.NO_CONTENT
+                    status: statusCode.NO_CONTENT
                 });
             }
         }
@@ -149,12 +149,12 @@ router.get('/user-verify/:phoneNumber/:code', (req, res) => {
                         if (resVerify.affectedRows > 0) {
                             return res.json({
                                 message: 'success',
-                                code: statusCode.OK
+                                status: statusCode.OK
                             });
                         } else {
                             return res.json({
                                 message: 'wrong code',
-                                code: statusCode.UNAUTHORIZED
+                                status: statusCode.UNAUTHORIZED
                             });            
                         }
                     }
@@ -162,7 +162,7 @@ router.get('/user-verify/:phoneNumber/:code', (req, res) => {
             } else {
                 return res.json({
                     message: 'user not found',
-                    code: statusCode.NO_CONTENT
+                    status: statusCode.NO_CONTENT
                 });
             }
         }
