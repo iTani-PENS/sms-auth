@@ -48,7 +48,7 @@ router.get('/check/:phoneNumber/:code', (req, res) => {
     let code = req.params.code;
 
     connection.query(
-        "SELECT * FROM bumdes_session WHERE nomor_telpon='"+phone_number+"' AND code='"+code+"'",
+        "SELECT * FROM bumdes_session WHERE nomor_telpon='"+ phone_number +"' AND code='"+ code +"'",
         (err, results, fields) => {
             if (results.length > 0) {
                 return res.json({
@@ -86,7 +86,9 @@ router.post('/register', (req, res) => {
                             message: 'created',
                             status: statusCode.CREATED,
                             data: {
-                                nama, nomor_telpon,
+                                profile: {
+                                    nama, nomor_telpon
+                                },
                                 verification_code: CODE
                             }
                         });
