@@ -21,7 +21,7 @@ router.get('/login/:phoneNumber', (req, res) => {
                 connection.query(
                     "REPLACE INTO bumdes_session (id_bumdes, nomor_telpon, code, date) VALUES ("+ bumdes_id +", '"+ bumdes_phone +"','"+ CODE +"', NOW())",
                     (errSession, resultSession, fields) => {
-                        // nexmo.message.sendSms(SENDER, phone_number, CONTENT);
+                        nexmo.message.sendSms(SENDER, phone_number, CONTENT);
                 
                         return res.json({
                             message: 'success',
@@ -80,7 +80,7 @@ router.post('/register', (req, res) => {
                 connection.query(
                     "REPLACE INTO bumdes_verify (id_bumdes, code, status, date) VALUES ("+ bumdes_id +", '"+ CODE +"', 'unverified', NOW())",
                     (errVerify, resVerify, fieldVerify) => {
-                        // nexmo.message.sendSms(SENDER, nomor_telpon, CONTENT);
+                        nexmo.message.sendSms(SENDER, nomor_telpon, CONTENT);
 
                         return res.json({
                             message: 'created',
@@ -115,7 +115,7 @@ router.get('/resend-verify/:phoneNumber', (req, res) => {
         "SELECT b.id, b.nama, b.nomor_telpon FROM bumdes b, bumdes_verify bv WHERE b.nomor_telpon='" + phone_number + "' AND bv.id_bumdes=b.id AND bv.status='unverified'",
         (err, result, field) => {
             if (result.length > 0) {
-                // nexmo.message.sendSms(SENDER, phone_number, CONTENT);
+                nexmo.message.sendSms(SENDER, phone_number, CONTENT);
 
                 return res.json({
                     message: 'success',
