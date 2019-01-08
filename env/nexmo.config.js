@@ -1,7 +1,7 @@
 const Nexmo = require('nexmo');
 
-const API_KEY = '923bb324';
-const API_SECRET = 'Pa4xAC7JKMWvV4Hs';
+const API_KEY = '9bf56193';
+const API_SECRET = 'fzTeZFuLiEX9VHmI';
 //const APP_ID = '';
 //const PRIVATE_KEY_PATH = '';
 
